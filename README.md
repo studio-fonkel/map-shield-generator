@@ -8,7 +8,7 @@
 `node index.js letterWidth letterHeight paddingX paddingY r,g,b,a amount`
 
 e.g.:
-`node index.js 10 30 5 5 100,100,100,255 20`
+`node index.js 10 30 5 5 100,100,100,255 100,100,100,255 20 city-`
 
 ### letterWidth
 Width of a single letter

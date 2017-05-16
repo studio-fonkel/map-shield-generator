@@ -9,6 +9,7 @@ var options = {
   paddingX: 5,
   paddingY: 5,
   borderColor: 0xFF000000,
+  contentColor: 0xFF000000,
   amount: 1,
   folder: 'images/',
   filenamePrefix: 'image-'
@@ -30,17 +31,25 @@ process.argv.forEach(function (val, index, array) {
       options.paddingY = parseInt(val);
       break;
     case 6:
-      let values = val.split(",");
-      let r = parseInt(values[0]);
-      let g = parseInt(values[1]);
-      let b = parseInt(values[2]);
-      let a = parseInt(values[3]);
+      var values = val.split(",");
+      var r = parseInt(values[0]);
+      var g = parseInt(values[1]);
+      var b = parseInt(values[2]);
+      var a = parseInt(values[3]);
       options.borderColor = Jimp.rgbaToInt(r, g, b, a);
       break;
     case 7:
-      options.amount = parseInt(val);
+      var values = val.split(",");
+      var r = parseInt(values[0]);
+      var g = parseInt(values[1]);
+      var b = parseInt(values[2]);
+      var a = parseInt(values[3]);
+      options.contentColor = Jimp.rgbaToInt(r, g, b, a);
       break;
     case 8:
+      options.amount = parseInt(val);
+      break;
+    case 9:
       options.filenamePrefix = val;
       break;
   }
@@ -59,6 +68,12 @@ for (var i = 1; i <= options.amount; i++) {
   // Create image:
   let image = new Jimp(parseInt(imageWidth), parseInt(imageHeight), function (err, image) {
     if (err) throw err;
+
+    for (var x = 0; x < imageWidth; x++) {
+	    for (var y = 0; y < imageHeight; y++) {
+			image.setPixelColor(options.contentColor, x, y);
+		}
+	}
 
     // Each row of pixels:
     for (var y = 0; y < imageHeight; y++) {
