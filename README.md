@@ -2,6 +2,7 @@
 
 ## Usage:
 `npm install`
+
 `node index.js letterWidth letterHeight paddingX paddingY r,g,b,a amount`
 
 e.g.:
@@ -13,7 +14,7 @@ Width of a single letter
 ### letterHeight
 Height of a single letter
 
-### paddingX:
+### paddingX
 Padding on both sides
 
 ### paddingY
