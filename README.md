@@ -1,7 +1,9 @@
 # Map Shield Generator
 
-## Usage:
+## Installation:
 `npm install`
+
+## Usage:
 
 `node index.js letterWidth letterHeight paddingX paddingY r,g,b,a amount`
 
